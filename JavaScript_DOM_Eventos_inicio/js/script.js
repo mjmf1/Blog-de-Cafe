@@ -9,9 +9,9 @@ heading.textContent = 'Blog de café con consejos y cursos 2'
 
 const enlaces = document.querySelectorAll('.navegacion a');
 
-enlaces[0].textContent = 'nosotros2';
+enlaces[0].textContent = 'nosotrosC';
 enlaces[0].classList.add('nueva-clase');
-enlaces[0].classList.remove('navegacion__enlace');
+//enlaces[0].classList.remove('navegacion__enlace');
 
 //console.log(enlaces[0]);
 
@@ -20,4 +20,28 @@ enlaces[0].classList.remove('navegacion__enlace');
 
 const heading2 = document.getElementById('heading');
 
-console.log(heading2);
+//console.log(heading2);
+
+// generar un nuevo enlace
+
+const EnlaceN = document.createElement('A');
+
+// agregar el href
+
+EnlaceN.href = 'nuevo-enlace.html';
+
+//agregar el texto
+
+EnlaceN.textContent = 'tienda virtual';
+
+//agregar clase
+
+EnlaceN.classList.add('navegacion__enlace');
+
+// agregar al documento
+
+const Navegacion = document.querySelector('.navegacion');
+
+Navegacion.appendChild(EnlaceN);;
+
+console.log(EnlaceN);
