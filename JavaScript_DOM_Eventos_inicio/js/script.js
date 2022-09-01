@@ -68,3 +68,17 @@ console.log(6);
 window.onscroll = function () {
     console.log('scrolling');
 }
+
+
+//selecionar  elementos y asociarles eventos
+
+let btnEnviar = document.querySelector('.boton--primario');
+
+btnEnviar.addEventListener('click', function (e) {
+    console.log(e);
+    e.preventDefault();
+
+    //validar formularios
+
+    console.log('enviar');
+});
