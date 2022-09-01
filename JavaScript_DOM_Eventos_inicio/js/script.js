@@ -45,3 +45,26 @@ const Navegacion = document.querySelector('.navegacion');
 Navegacion.appendChild(EnlaceN);;
 
 console.log(EnlaceN);
+
+
+//eventos
+
+console.log(1);
+
+window.addEventListener('load', function () { // el load espera que cargue js y los archivod que dependen del html
+    console.log(3);
+})
+
+window.onload = function () {
+    console.log(11);
+}
+
+document.addEventListener('DOMContentLoaded', function () { // DOMContentLoaded solo espera qe cargue el html
+    console.log(9);
+})
+
+console.log(6);
+
+window.onscroll = function () {
+    console.log('scrolling');
+}
