@@ -44,29 +44,29 @@ const Navegacion = document.querySelector('.navegacion');
 
 Navegacion.appendChild(EnlaceN);;
 
-console.log(EnlaceN);
+//console.log(EnlaceN);
 
 
 //eventos
 
-console.log(1);
+//console.log(1);
 
 window.addEventListener('load', function () { // el load espera que cargue js y los archivod que dependen del html
-    console.log(3);
+    //console.log(3);
 })
 
 window.onload = function () {
-    console.log(11);
+    //console.log(11);
 }
 
 document.addEventListener('DOMContentLoaded', function () { // DOMContentLoaded solo espera qe cargue el html
-    console.log(9);
+    //console.log(9);
 })
 
-console.log(6);
+//console.log(6);
 
 window.onscroll = function () {
-    console.log('scrolling');
+   // console.log('scrolling');
 }
 
 
@@ -82,3 +82,29 @@ btnEnviar.addEventListener('click', function (e) {
 
     console.log('enviar');
 });
+
+// eventos de los Input y Textarea
+
+const datos = {
+    nombre: '',
+    email: '',
+    mensaje: ''
+}
+
+const nombre = document.querySelector('#nombre');
+
+const email = document.querySelector('#email');
+
+const mensaje = document.querySelector('#mensaje');
+
+nombre.addEventListener('input',leerTex);
+email.addEventListener('input',leerTex);
+mensaje.addEventListener('input',leerTex);
+
+function leerTex(e) {
+    //console.log(e.target.value);
+
+    datos[e.target.id] = e.target.value;
+
+    console.log(datos);
+}
