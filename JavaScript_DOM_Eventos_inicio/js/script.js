@@ -72,7 +72,7 @@ window.onscroll = function () {
 
 //selecionar  elementos y asociarles eventos
 
-let btnEnviar = document.querySelector('.boton--primario');
+/* let btnEnviar = document.querySelector('.boton--primario');
 
 btnEnviar.addEventListener('click', function (e) {
     console.log(e);
@@ -81,7 +81,7 @@ btnEnviar.addEventListener('click', function (e) {
     //validar formularios
 
     console.log('enviar');
-});
+}); */
 
 // eventos de los Input y Textarea
 
@@ -92,14 +92,21 @@ const datos = {
 }
 
 const nombre = document.querySelector('#nombre');
-
 const email = document.querySelector('#email');
-
 const mensaje = document.querySelector('#mensaje');
+const formulario = document.querySelector('.formulario')
 
 nombre.addEventListener('input',leerTex);
 email.addEventListener('input',leerTex);
 mensaje.addEventListener('input',leerTex);
+
+// el evento del sunmit
+
+formulario.addEventListener('submit', function (e) {
+    e.preventDefault()
+
+    console.log('Enviand Formulario');
+});
 
 function leerTex(e) {
     //console.log(e.target.value);
