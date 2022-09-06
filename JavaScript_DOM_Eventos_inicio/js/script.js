@@ -114,14 +114,14 @@ formulario.addEventListener('submit', function (e) {
     // mostar mensaje de todos los campos son obligatorios
 
     if (nombre ==='' || email === '' || mensaje === '') {
-        mostrarError('Todos los campos son obligatorios'); 
+        MostrarAlerta('Todos los campos son obligatorios', true); 
 
         return; // corta l ejecucion del codigo 
     }
 
     // mostrar mensaje de aprobado
 
-    mostrarMensaje('Datos enviados correctamente');
+    MostrarAlerta('Datos enviados correctamente');
         
     // enviar el formulario 
     console.log('Enviando Formulario');
@@ -136,33 +136,21 @@ function leerTex(e) {
     //console.log(datos);
 }
 
-// muestra un error en pantalla
-
-function mostrarError(mensaje) {
-    const error = document.createElement('P');
-    error.textContent = mensaje;
-    error.classList.add('error');
-
-    formulario.appendChild(error);
+function MostrarAlerta(mensaje,error = null) {
+    const alerta = document.createElement('P');
+    alerta.textContent = mensaje;
+    if (error) {
+        alerta.classList.add('error');
+    }else{
+        alerta.classList.add('datosEnviados');
+    }
+    formulario.appendChild(alerta);
 
     // que desaparezca despues de 5s
 
     setTimeout(() => {
         error.remove();
     }, 5000);
-}
 
-function mostrarMensaje(mensaje) {
-    const datosEnviados = document.createElement('P');
-    datosEnviados.textContent = mensaje;
-    datosEnviados.classList.add('datosEnviados');
-
-    formulario.appendChild(datosEnviados);
-
-    // que desaparezca despues de 5s
-
-    setTimeout(() => {
-        datosEnviados.remove();
-    }, 5000);
 }
 
