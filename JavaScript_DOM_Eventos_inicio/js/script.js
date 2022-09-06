@@ -100,12 +100,32 @@ nombre.addEventListener('input',leerTex);
 email.addEventListener('input',leerTex);
 mensaje.addEventListener('input',leerTex);
 
-// el evento del sunmit
+// el evento del submit
 
 formulario.addEventListener('submit', function (e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    console.log('Enviand Formulario');
+   // console.log('Enviand Formulario');
+
+    //validar  el formulario
+
+    const { nombre, email, mensaje} = datos ;
+
+    // mostar mensaje de todos los campos son obligatorios
+
+    if (nombre ==='' || email === '' || mensaje === '') {
+        mostrarError('Todos los campos son obligatorios'); 
+
+        return; // corta l ejecucion del codigo 
+    }
+
+    // mostrar mensaje de aprobado
+
+    mostrarMensaje('Datos enviados correctamente');
+        
+    // enviar el formulario 
+    console.log('Enviando Formulario');
+
 });
 
 function leerTex(e) {
@@ -113,5 +133,36 @@ function leerTex(e) {
 
     datos[e.target.id] = e.target.value;
 
-    console.log(datos);
+    //console.log(datos);
 }
+
+// muestra un error en pantalla
+
+function mostrarError(mensaje) {
+    const error = document.createElement('P');
+    error.textContent = mensaje;
+    error.classList.add('error');
+
+    formulario.appendChild(error);
+
+    // que desaparezca despues de 5s
+
+    setTimeout(() => {
+        error.remove();
+    }, 5000);
+}
+
+function mostrarMensaje(mensaje) {
+    const datosEnviados = document.createElement('P');
+    datosEnviados.textContent = mensaje;
+    datosEnviados.classList.add('datosEnviados');
+
+    formulario.appendChild(datosEnviados);
+
+    // que desaparezca despues de 5s
+
+    setTimeout(() => {
+        datosEnviados.remove();
+    }, 5000);
+}
+
